@@ -8,32 +8,32 @@
 // Dichiaro L'array delle card:
 const teamMembers = [
     {
-        image: 'src="img/wayne-barnett-founder-ceo.jpg" alt="Wayne Barnett"',
+        image: 'wayne-barnett-founder-ceo',
         name: 'Wayne Barnett',
         role: 'Founder & Ceo'
     },
     {
-        image: 'src="img/angela-caroll-chief-editor.jpg" alt="Angela Caroll"',
+        image: 'angela-caroll-chief-editor',
         name: 'Angela Caroll',
         role: 'Chief Editor'
     },
     {
-        image: 'src="img/walter-gordon-office-manager.jpg" alt="Walter Gordon"',
+        image: 'walter-gordon-office-manager',
         name: 'Walter Gordon',
         role: 'Office Manager'
     },
     {
-        image: 'src="img/angela-lopez-social-media-manager.jpg" alt="Angela Lopez"',
+        image: 'angela-lopez-social-media-manager',
         name: 'Angela Lopez',
         role: 'Social Media Manager'
     },
     {
-        image: 'src="img/scott-estrada-developer.jpg" alt="Scott Estrada"',
+        image: 'scott-estrada-developer',
         name: 'Scott Estrada',
         role: 'Developer'
     },
     {
-        image: 'src="img/barbara-ramos-graphic-designer.jpg" alt="Barbara Ramos"',
+        image: 'barbara-ramos-graphic-designer',
         name: 'Barbara Ramos',
         role: 'Graphic Designer'
     },
@@ -45,14 +45,14 @@ const teamContainer = document.querySelector('.team-container');
 // Creo un ciclo for per ogni card dell'array:
 for(let i = 0; i < teamMembers.length; i++) {
     const thisCard = teamMembers[i];
-    // console.log(thisCard);
 
     // Creo un nuovo template che popolo con i dati giusti:
     const cardToDraw = `
     <div class="team-card">
         <div class="card-image">
             <img
-            ${thisCard.image}
+            src="img/${thisCard.image}.jpg"
+            alt="${thisCard.name}"
             />
         </div>
         <div class="card-text">
