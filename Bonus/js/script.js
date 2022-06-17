@@ -39,25 +39,65 @@ const teamMembers = [
     },
 ];
 
-// Selezione la classe nel DOM che dovrò successivamente popolare:
-const teamContainer = document.querySelector('.team-container');
+const addMemberBtn = document.getElementById('addMemberButton');
 
-// Creo un ciclo for per ogni card dell'array:
-for(let i = 0; i < teamMembers.length; i++) {
-    const thisCard = teamMembers[i];
+addMemberBtn.addEventListener('click', drawAllCardsz);
+
+function drawAllCardsz() {
+
+    // Selezione le classi nel DOM che dovrò successivamente popolare:
+    const newCardImage = document.querySelector('#image').value;
+    const newCardName = document.querySelector('#name').value;
+    const newCardRole = document.querySelector('#role').value;
+
+    //  Creo la variabile per le card che verranno inserite:
+    const newCard = {
+        image: newCardImage,
+        name: newCardName,
+        role: newCardRole
+    };
+
+    // Pusho la nuova card nell'array delle card:
+    teamMembers.push(newCard);
+
+    // Appendo il singolo elemento alla card:
+    drawSingleElement(newCard);
+}
+
+// -------------------------------------------------- //
+//                     FUNCTIONS                      //
+// -------------------------------------------------- // 
+
+function drawAllCards(cardObjectsArray) {
+
+    // crea una card e la stampa per ogni elemento dell'array:
+    for(let i = 0; i < cardObjectsArray.length; i++) {
+        const thisCard = cardObjectsArray[i];
+
+        // Chiama l'altra funzione che crea la card e
+        // l'appende all'array delle card:
+        drawSingleElement(thisCard);
+    }
+}
+
+// Prende un oggetto card e lo stampa in pagina:
+function drawSingleElement(cardObject) {
+
+    // Selezione la classe nel DOM che dovrò successivamente popolare:
+    const teamContainer = document.querySelector('.team-container');
 
     // Creo un nuovo template che popolo con i dati giusti:
     const cardToDraw = `
     <div class="team-card">
         <div class="card-image">
             <img
-            src="img/${thisCard.image}.jpg"
-            alt="${thisCard.name}"
+            src="img/${cardObject.image}.jpg"
+            alt="${cardObject.name}"
             />
         </div>
         <div class="card-text">
-            <h3>${thisCard.name}</h3>
-            <p>${thisCard.role}</p>
+            <h3>${cardObject.name}</h3>
+            <p>${cardObject.role}</p>
         </div>
     </div>
     `;
@@ -65,3 +105,5 @@ for(let i = 0; i < teamMembers.length; i++) {
     // Concateno alla classe selezionata:
     teamContainer.innerHTML += cardToDraw;
 }
+
+
