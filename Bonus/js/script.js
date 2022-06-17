@@ -39,11 +39,16 @@ const teamMembers = [
     },
 ];
 
-const addMemberBtn = document.getElementById('addMemberButton');
+// Invoco la funzione:
+drawAllCards(teamMembers) 
 
-addMemberBtn.addEventListener('click', drawAllCardsz);
+// Selezione l'id nel DOM e conservo il valore in una variabile:
+const addMemberButton = document.getElementById('addMemberButton');
 
-function drawAllCardsz() {
+// Aggiungo un evento al click:
+addMemberButton.addEventListener('click', createAllCards);
+
+function createAllCards() {
 
     // Selezione le classi nel DOM che dovrò successivamente popolare:
     const newCardImage = document.querySelector('#image').value;
