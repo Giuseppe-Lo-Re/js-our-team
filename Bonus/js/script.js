@@ -67,6 +67,11 @@ function createAllCards() {
 
     // Appendo il singolo elemento alla card:
     drawSingleElement(newCard);
+
+    // Resetto il form:
+    document.querySelector('#image').value = '';
+    document.querySelector('#name').value = '';
+    document.querySelector('#role').value = '';
 }
 
 // -------------------------------------------------- //
